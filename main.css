@@ -1,4 +1,9 @@
-﻿body {
+﻿@keyframes rotation {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+body {
     font-family: 'Raleway', sans-serif;
     color: #213053;
     margin: 0;
@@ -9,6 +14,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .header__logo {
@@ -64,8 +73,11 @@ button:hover{
 }
 
 .about__sun-image {
+    position: absolute;
     width: 100px;
     height: 100px;
+    animation: rotation 10s linear infinite;
+
 }
 
 .about h1{
@@ -182,4 +194,80 @@ input{
 
 .footer__links a{
     margin-bottom: 15px;
+}
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .about{
+        padding: 115px 20px;
+    }
+
+    .about h1{
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .about__image {
+        width: 280px;
+    }
+
+    .about__sun-image {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+/* Телефоны */
+@media (max-width: 720px) {
+    header {
+        padding: 10px;
+    }
+
+    .header__logo{
+        height: 20px;
+    }
+
+    header a {
+        margin-right: 10px;
+    }
+
+    .about{
+        flex-direction: column-reverse;
+        padding: 50px 10px;
+    }
+
+    .about h1{
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .form{
+        padding: 50px 10px;        
+    }
+
+    .form h1{
+        font-size: 36px;
+    }
+
+    section{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .about__image{
+        width: 280px;
+    }
+
+    .about__sun-image{
+        width: 75px;
+        height: 75px;
+    }
+
+    footer {
+        padding: 50px 10px;
+    }
+
+    .footer__container{
+        flex-direction: column;
+    }
 }
